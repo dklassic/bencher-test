@@ -40,10 +40,12 @@ jobs:
       - name: Set bencher opts for try branch
         if: ${{ github.event_name == 'push' && github.ref_name == 'try' }}
         run: |
+            git remote add upstream https://github.com/wusyong/bencher-test
+            git fetch upstream
             echo "RUN_BENCHER_OPTIONS=--branch try \
             --hash $(git rev-parse HEAD~1) \
             --branch-start-point try \
-            --branch-start-point-hash $(git rev-parse HEAD) \
+            --branch-start-point-hash $(git merge-base upstream/main HEAD) \
             --branch-reset" >> "$GITHUB_ENV"
       # - name: File size
       #   run: ./mach test-size -r --bmf-output size.json
