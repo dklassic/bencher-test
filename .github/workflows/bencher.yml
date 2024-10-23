@@ -8,16 +8,8 @@ jobs:
     name: Continuous Benchmarking with Bencher
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout dklassic/bencher repository
-        uses: actions/checkout@v4
-        with:
-          repository: dklassic/bencher
-          ref: github-checks
-      - uses: rui314/setup-mold@v1
-        with:
-          mold-version: 2.4.0
       - name: Install Bencher CLI fork
-        run: cargo install --debug --path services/cli --locked --force
+        run: cargo install --git https://github.com/dklassic/bencher --branch github-checks --locked --force bencher_cli
       - name: Track base branch benchmarks with Bencher
         run: |
           bencher run \
