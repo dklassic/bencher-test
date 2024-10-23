@@ -9,12 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sagudev/bencher repository
-        uses: actions/checkout@v4
-        with:
+         uses: actions/checkout@v4
+         with:
            repository: sagudev/bencher
            ref: github-checks
+      - uses: rui314/setup-mold@v1
+         with:
+           mold-version: 2.4.0
       - name: Install Bencher CLI fork
-        run: cargo install --git https://github.com/sagudev/bencher --branch github-checks --locked --force bencher_cli
+         run: cargo install --debug --path services/cli --locked --force
       - name: Track base branch benchmarks with Bencher
         run: |
           bencher run \
