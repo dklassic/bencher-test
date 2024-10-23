@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sagudev/bencher repository
-         uses: actions/checkout@v4
-         with:
+        uses: actions/checkout@v4
+        with:
            repository: sagudev/bencher
            ref: github-checks
       - name: Install Bencher CLI fork
-         run: cargo install --debug --path services/cli --locked --force
+        run: cargo install --debug --path services/cli --locked --force
       - name: Track base branch benchmarks with Bencher
         run: |
           bencher run \
