@@ -37,12 +37,12 @@ jobs:
       #   run: |
       #       echo "RUN_BENCHER_OPTIONS=--branch main \
       #       --github-actions ${{ secrets.GITHUB_TOKEN }}" >> "$GITHUB_ENV"
-      - name: Set bencher opts for try branch
-        if: ${{ github.event_name == 'push' && github.ref_name == 'try' }}
+      - name: Set bencher opts for pews branch
+        if: ${{ github.event_name == 'push' && github.ref_name == 'pews' }}
         run: |
-            echo "RUN_BENCHER_OPTIONS=--branch try \
+            echo "RUN_BENCHER_OPTIONS=--branch pews \
             --hash $(git rev-parse HEAD~1) \
-            --branch-start-point main \
+            --branch-start-point pews \
             --branch-start-point-hash $(git rev-parse HEAD) \
             --branch-reset" >> "$GITHUB_ENV"
       # - name: File size
