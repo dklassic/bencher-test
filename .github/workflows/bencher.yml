@@ -1,4 +1,4 @@
-name: Linux WPT Tests
+name: Simple Workflow Test
 on:
   push:
     branches: main
