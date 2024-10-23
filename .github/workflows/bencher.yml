@@ -14,7 +14,7 @@ jobs:
            repository: sagudev/bencher
            ref: github-checks
       - name: Install Bencher CLI fork
-        run: cargo install --debug --path services/cli --locked --force
+        run: cargo install --debug --path services/cli --force
       - name: Track base branch benchmarks with Bencher
         run: |
           bencher run \
