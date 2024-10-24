@@ -2,6 +2,8 @@ name: Simple Workflow Test
 on:
   push:
     branches: main
+permissions:
+  checks: write
 
 jobs:
   benchmark_base_branch:
