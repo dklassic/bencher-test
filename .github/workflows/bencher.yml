@@ -21,3 +21,6 @@ jobs:
           --adapter json \
           --github-actions '${{ secrets.GITHUB_TOKEN }}' \
           bencher mock
+      - name: summary test
+        run: |
+          run: echo '### Hello world! 🚀' >> $GITHUB_STEP_SUMMARY
