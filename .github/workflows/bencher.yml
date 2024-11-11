@@ -10,7 +10,8 @@ jobs:
     name: Continuous Benchmarking with Bencher
     runs-on: ubuntu-latest
     steps:
-      - uses: dklassic/bencher@main
+      - name: Install Bencher CLI fork
+        run: cargo install --git https://github.com/dklassic/bencher --branch github-checks --locked --force bencher_cli
       - name: Track base branch benchmarks with Bencher
         run: |
           bencher run \
