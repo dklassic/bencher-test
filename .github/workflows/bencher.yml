@@ -23,4 +23,4 @@ jobs:
           bencher mock
       - name: summary test
         run: |
-          run: echo '### Hello world! 🚀' >> $GITHUB_STEP_SUMMARY
+          echo '### Hello world! 🚀' >> $GITHUB_STEP_SUMMARY
