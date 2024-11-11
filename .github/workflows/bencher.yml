@@ -10,7 +10,7 @@ jobs:
     name: Continuous Benchmarking with Bencher
     runs-on: ubuntu-latest
     steps:
-      - uses: bencherdev/bencher@main
+      - uses: dklassic/bencher@main
       - name: Track base branch benchmarks with Bencher
         run: |
           bencher run \
@@ -21,6 +21,3 @@ jobs:
           --adapter json \
           --github-actions '${{ secrets.GITHUB_TOKEN }}' \
           bencher mock
-      - name: summary test
-        run: |
-          echo '### Hello world! 🚀' >> $GITHUB_STEP_SUMMARY
