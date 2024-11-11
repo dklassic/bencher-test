@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Bencher CLI fork
-        run: cargo install --git https://github.com/dklassic/bencher --branch github-checks --locked --force bencher_cli
+        run: cargo install --git https://github.com/dklassic/bencher --branch main --locked --force bencher_cli
       - name: Track base branch benchmarks with Bencher
         run: |
           bencher run \
